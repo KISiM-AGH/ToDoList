@@ -1,11 +1,11 @@
 # ToDoListWidlo
-##Project
+## Project
 This project was generated with Angular CLI version 15.0.4.
 
-##Programming languages
+## Programming languages
 Typescript & CSS & HTML
 
-##Frameworks
+## Frameworks
 Bulma
 
 
