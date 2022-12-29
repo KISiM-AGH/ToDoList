@@ -6,6 +6,6 @@ This project was generated with Angular CLI version 15.0.4.
 Typescript & CSS & HTML
 
 ## Frameworks
-Bulma
+Bulma v0.9.4
 
 
