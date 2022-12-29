@@ -1,4 +1,11 @@
-.header{
-  background : beige;
-  padding : 60px;
+.header {
+  background: linear-gradient(#EAE3C9, #F5F5DD, #FAFDF3);
+  padding: 60px;
+  width: 700px;
+  margin: auto;
+  text-align: center;
+  border-radius: 100px / 80px;
+  text-shadow: 2px 5px 7px rgba(256, 256, 256, 1);
+
+
 }
