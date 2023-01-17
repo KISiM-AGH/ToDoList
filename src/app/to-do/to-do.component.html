@@ -1,19 +1,27 @@
+
+
 <section class = "header">
   <h1 class = "title is-family-code is-3">To Do List </h1>
 </section>
 <div class = "container">
   <div class = "add-new">
-    <form>
-      <div class = "field is-grouped">
+    <form #frm="ngForm" (ngSubmit)="onFormSubmit(frm)">
+
+      <div class = "field is-grouped" style="margin: 0">
        <p class = "control is-expanded">
-         <input type="text" class="input" placeholder="Start writing a new task">
+         <input ngModel #textField="ngModel" required minlength="2" name="text" class="input" placeholder="Start writing a new task">
        </p>
         <p class = "control">
-          <a class = "button is-info">
+          <button class="button">
             ADD
-          </a>
+          </button>
         </p>
      </div>
+      <div *ngIf="frm?.touched && frm?.invalid && showValidationErrors">
+        <p class="help is-danger" *ngIf="frm.controls['text'].errors?.['required']">You need to type something in</p>
+        <p class="help is-danger" *ngIf="frm.controls['text'].errors?.['minlength']">Text must be at least 2 characters</p>
+      </div>
+
    </form>
   </div>
 </div>
@@ -21,33 +29,9 @@
 <section class = "section">
   <div class = "container">
     <div class = "to-do-list">
-      <div class="to-do-item completed">
+      <app-item *ngFor="let todo of todos" [todo]="todo" (clicked)="setComplete(todo)"
+      (clickedEdit)="editTodo(todo)" (clickedDelete)="deleteTodo(todo)"></app-item>
 
-        <div class = "done">
-          <i class = "material-icons">done</i>
-        </div>
-        <div class ="to-do-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </div>
-      </div>
-      <div class="to-do-item">
-
-        <div class = "done">
-          <i class = "material-icons">done</i>
-        </div>
-        <div class ="to-do-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </div>
-
-        <div class="to-do-controls">
-          <div class="to-do-button">
-            <i class="material-icons">edit</i>
-          </div>
-          <div class="to-do-button">
-            <i class="material-icons">delete_sweep</i>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
